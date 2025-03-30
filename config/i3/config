@@ -1,5 +1,5 @@
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -12,14 +12,13 @@ floating_modifier $mod
 exec ~/.config/polybar/launch.sh
 
 # start a terminal
-bindsym $mod+Return exec qterminal
+bindsym $mod+Return exec terminator
 
 #shutdown
 bindsym $mod+Escape exec shutdown -h now
 
 #start a browser
-bindsym $mod+Shift+h exec firefox
-for_window [class="Firefox"] move to workspace 2
+bindsym $mod+Shift+h exec --no-startup-id i3-msg "workspace 2; exec chromium"
 
 #lock desktop
 #bindsym $mod+Shift+d exec i3lock-fancy
@@ -27,6 +26,8 @@ for_window [class="Firefox"] move to workspace 2
 #touch_pad
 #exec xinput set-prop 11 323 1
 
+# thunar
+bindsym $mod+Shift+d exec thunar
 #lang_us_ru
 exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:ctrl_alt_toggle"
 #exec setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
@@ -156,8 +157,8 @@ bindsym $mod+r mode "resize"
 
 # i3-gaps
 for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 5
+gaps inner 3
+gaps outer 3
 
 client.focused  #82c8ff #82c8ff #dddddd
 client.focused_inactive #333333 #333333 #888888
